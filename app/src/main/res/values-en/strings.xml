@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Cinema App</string>
-    <string name="navigation_button_name">Navigation</string>
     <string name="contact_details_header">Contactdetails</string>
     <string name="contact_details">
         Lovensdijkstraat 61
-        \n4818 AJ Netherlands
+        \n4818 AJ Breda
+        \nNetherlands
         \nTelephonenumber: 076–00000000
         \nEmail@email.com
     </string>

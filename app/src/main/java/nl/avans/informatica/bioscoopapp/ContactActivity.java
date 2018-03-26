@@ -1,5 +1,6 @@
 package nl.avans.informatica.bioscoopapp;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -8,14 +9,25 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class ContactActivity extends AppCompatActivity {
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
-    private Button button;
+public class ContactActivity extends AppCompatActivity implements OnMapReadyCallback {
+
     private TextView tv1;
     private TextView tv2;
     private TextView tv3;
     private TextView tv4;
+    private GoogleMap mGoogleMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,18 +44,42 @@ public class ContactActivity extends AppCompatActivity {
         tv3.setText(R.string.contact_details_header);
         tv4.setText(R.string.contact_details);
 
+        if(googleServicesAvailable()){
+            Toast.makeText(this,"Connected to play services!", Toast.LENGTH_LONG).show();
+            initMap();
+        }
+    }
 
-        button = (Button) findViewById(R.id.navigationButton);
-        button.setText(R.string.navigation_button_name);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Uri gmmIntentUri = Uri.parse("google.navigation:q=Lovensdijkstraat 61+Breda");
-                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                mapIntent.setPackage("com.google.android.apps.maps");
-                startActivity(mapIntent);
-            }
-        });
+    public boolean googleServicesAvailable(){
+        GoogleApiAvailability api = GoogleApiAvailability.getInstance();
+        int isAvailable = api.isGooglePlayServicesAvailable(this);
 
+        if(isAvailable == ConnectionResult.SUCCESS){
+            return true;
+        } else if (api.isUserResolvableError(isAvailable)){
+            Dialog dialog = api.getErrorDialog(this, isAvailable, 0);
+            dialog.show();
+        } else {
+            Toast.makeText(this, "Can't connect to play services", Toast.LENGTH_LONG).show();
+        }
+        return false;
+    }
+    private void initMap(){
+        MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.mapFragment);
+        mapFragment.getMapAsync(this);
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mGoogleMap = googleMap;
+        goToLocationZoom(51.585899, 4.793249, 16);
+    }
+
+    private void goToLocationZoom(double lat, double lng, float zoom) {
+        LatLng ll = new LatLng(lat, lng);
+        CameraUpdate update = CameraUpdateFactory.newLatLngZoom(ll, zoom);
+        mGoogleMap.moveCamera(update);
+        MarkerOptions options = new MarkerOptions().title("Lovensdijkstraat 61").position(ll);
+        mGoogleMap.addMarker(options);
     }
 }

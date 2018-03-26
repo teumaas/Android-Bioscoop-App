@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">Bioscoop App</string>
 
-    <string name="navigation_button_name">Routebeschrijving</string>
     <string name="contact_header">Contact</string>
     <string name="contact_description">Als u vragen heeft, neem dan contact met ons op, wij zullen op al uw vragen zo snel mogelijk antwoorden!</string>
     <string name="contact_details_header">Contactgegevens</string>
     <string name="contact_details">
         Lovensdijkstraat 61
-        \n4818 AJ Nederland
+        \n4818 AJ Breda
+        \nNederland
         \nTelefoon: 076–00000000
         \nEmail@email.com
     </string>
