@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".controllers.MainActivity"
             android:label="@string/title_activity_main"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme.NoActionBar">
@@ -24,8 +24,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MovieDetailActivity"
-            android:parentActivityName=".MainActivity">
+            android:name=".controllers.MovieDetailActivity"
+            android:parentActivityName=".controllers.MainActivity">
         </activity>
 
         <meta-data

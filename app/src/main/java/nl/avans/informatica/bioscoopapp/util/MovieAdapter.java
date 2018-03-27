@@ -1,8 +1,7 @@
-package nl.avans.informatica.bioscoopapp;
+package nl.avans.informatica.bioscoopapp.util;
 
 import android.content.Context;
 import android.content.Intent;
-import android.provider.ContactsContract;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +13,10 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import nl.avans.informatica.bioscoopapp.R;
+import nl.avans.informatica.bioscoopapp.controllers.MovieDetailActivity;
+import nl.avans.informatica.bioscoopapp.domain.Movie;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
 
