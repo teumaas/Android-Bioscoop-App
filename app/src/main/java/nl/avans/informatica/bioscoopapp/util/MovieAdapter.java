@@ -89,8 +89,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                 .load(movie.getImage())
                 .into(holder.imageViewMovie);
 
+        Log.d(TAG, movie.getRuntime());
+
         holder.textViewTitle.setText(String.valueOf(movie.getTitle()));
-        holder.textViewActors.setText(String.valueOf(movie.getActors()));
+        //holder.textViewActors.setText(String.valueOf(movie.getActors()));
         holder.textViewGenre.setText(String.valueOf(movie.getGenre()));
         holder.textViewDuration.setText(String.valueOf(movie.getRuntime()));
     }

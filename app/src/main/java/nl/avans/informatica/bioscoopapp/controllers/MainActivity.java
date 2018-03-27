@@ -15,11 +15,13 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 
 import nl.avans.informatica.bioscoopapp.R;
+import nl.avans.informatica.bioscoopapp.api.GetMoviesRequest;
 import nl.avans.informatica.bioscoopapp.domain.Movie;
 import nl.avans.informatica.bioscoopapp.util.MovieAdapter;
+import nl.avans.informatica.bioscoopapp.util.interfaces.OnMovieAvailable;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, OnMovieAvailable {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -42,7 +44,9 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
+        GetMoviesRequest getMoviesRequest = new GetMoviesRequest(this);
+        String params[] = {"https://api.teumaas.nl/getMovies.php?where=*"};
+        getMoviesRequest.execute(params);
 
         mMovieList = new ArrayList<>();
 
@@ -111,5 +115,11 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onMovieAvailable(Movie movie) {
+        mMovieList.add(movie);
+        mAdapter.notifyDataSetChanged();
     }
 }

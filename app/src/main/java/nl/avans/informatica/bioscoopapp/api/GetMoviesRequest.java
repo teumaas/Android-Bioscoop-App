@@ -87,6 +87,7 @@ public class GetMoviesRequest extends AsyncTask<String, Void, String> {
 
             JSONArray movies = jsonObject.getJSONArray("Movies");
 
+            Log.d(TAG, "About to start looping");
             for (int idx = 0; idx < movies.length(); idx++) {
                 JSONObject Movie = new JSONObject(movies.getString(idx));
 
