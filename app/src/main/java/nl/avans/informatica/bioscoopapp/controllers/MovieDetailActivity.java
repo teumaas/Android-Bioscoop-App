@@ -1,4 +1,4 @@
-package nl.avans.informatica.bioscoopapp;
+package nl.avans.informatica.bioscoopapp.controllers;
 
 import android.content.Intent;
 import android.support.annotation.Nullable;
@@ -10,6 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+
+import nl.avans.informatica.bioscoopapp.R;
+import nl.avans.informatica.bioscoopapp.domain.Movie;
 
 public class MovieDetailActivity extends AppCompatActivity {
 
