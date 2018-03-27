@@ -86,13 +86,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         Movie movie = (Movie) this.movies.get(position);
 
         Picasso.with(context)
-                .load(movie.getImageURL())
+                .load(movie.getImage())
                 .into(holder.imageViewMovie);
 
         holder.textViewTitle.setText(String.valueOf(movie.getTitle()));
         holder.textViewActors.setText(String.valueOf(movie.getActors()));
         holder.textViewGenre.setText(String.valueOf(movie.getGenre()));
-        holder.textViewDuration.setText(String.valueOf(movie.getDuration()) + " minutes");
+        holder.textViewDuration.setText(String.valueOf(movie.getRuntime()));
     }
 
     @Override

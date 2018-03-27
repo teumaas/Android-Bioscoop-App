@@ -18,7 +18,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import nl.avans.informatica.bioscoopapp.domain.Movie;
-import nl.avans.informatica.bioscoopapp.util.OnMovieAvailable;
+import nl.avans.informatica.bioscoopapp.util.interfaces.OnMovieAvailable;
 
 /**
  * Created by sjoer on 23-3-2018.
@@ -28,7 +28,7 @@ public class GetMoviesRequest extends AsyncTask<String, Void, String> {
     private final static String TAG = "GetMoviesRequest";
     private OnMovieAvailable listener = null;
 
-    public GetMoviesRequest(OnMovieAvailable listener){
+    public GetMoviesRequest(OnMovieAvailable listener) {
         this.listener = listener;
     }
 
@@ -45,7 +45,7 @@ public class GetMoviesRequest extends AsyncTask<String, Void, String> {
             URLConnection urlConnection = url.openConnection();
             Log.d(TAG, "Try variables were made");
 
-            if (!(urlConnection instanceof HttpURLConnection)){
+            if (!(urlConnection instanceof HttpURLConnection)) {
                 return null;
             }
 
@@ -59,17 +59,17 @@ public class GetMoviesRequest extends AsyncTask<String, Void, String> {
             Log.d(TAG, "httpConnection.connect() was done");
 
             responsCode = httpConnection.getResponseCode();
-            if (responsCode == httpConnection.HTTP_OK){
+            if (responsCode == httpConnection.HTTP_OK) {
                 inputStream = httpConnection.getInputStream();
                 response = getStringFromInputStream(inputStream);
                 Log.d(TAG, "doInbackground response = " + response);
             } else {
                 Log.d(TAG, "Error, invalid response");
             }
-        } catch (MalformedURLException e){
+        } catch (MalformedURLException e) {
             Log.d(TAG, "doInBackground MalformedUrlException " + e.getLocalizedMessage());
             return null;
-        } catch (IOException e){
+        } catch (IOException e) {
             Log.d(TAG, "doInbackground IOException " + e.getLocalizedMessage());
             return null;
         }
@@ -78,7 +78,7 @@ public class GetMoviesRequest extends AsyncTask<String, Void, String> {
 
     public void onPostExecute(String response) {
         Log.d(TAG, "onPostExecute was called");
-        if (response == null || response == ""){
+        if (response == null || response == "") {
             return;
         }
         JSONObject jsonObject;
@@ -87,18 +87,20 @@ public class GetMoviesRequest extends AsyncTask<String, Void, String> {
 
             JSONArray movies = jsonObject.getJSONArray("Movies");
 
-            for(int idx = 0; idx < movies.length(); idx++){
+            for (int idx = 0; idx < movies.length(); idx++) {
                 JSONObject Movie = new JSONObject(movies.getString(idx));
 
                 String MovieId = Movie.getString("MovieId");
                 String Title = Movie.getString("Title");
+                String Runtime = Movie.getString("Runtime");
                 String Year = Movie.getString("Year");
+                String Actors = Movie.getString("Actors");
                 String Plot = Movie.getString("Plot");
                 String Language = Movie.getString("Language");
                 String Genre = Movie.getString("Genre");
                 String Image = Movie.getString("Image");
 
-                Movie MovieObject = new Movie(MovieId, Title, Year, Language, Genre);
+                Movie MovieObject = new Movie(MovieId, Title, Runtime, Year, Actors, Language, Genre);
                 MovieObject.setImage(Image);
                 MovieObject.setPlot(Plot);
 
@@ -109,7 +111,7 @@ public class GetMoviesRequest extends AsyncTask<String, Void, String> {
         }
     }
 
-    private String getStringFromInputStream(InputStream inputStream){
+    private String getStringFromInputStream(InputStream inputStream) {
         Log.d(TAG, "getStringFromInputStream was called");
         BufferedReader br = null;
         StringBuilder sb = new StringBuilder();
@@ -117,13 +119,13 @@ public class GetMoviesRequest extends AsyncTask<String, Void, String> {
         String line;
         try {
             br = new BufferedReader(new InputStreamReader(inputStream));
-            while ((line = br.readLine()) != null){
+            while ((line = br.readLine()) != null) {
                 sb.append(line);
             }
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if (br != null){
+            if (br != null) {
                 try {
                     br.close();
                 } catch (IOException e) {

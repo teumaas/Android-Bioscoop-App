@@ -3,7 +3,6 @@ package nl.avans.informatica.bioscoopapp.api;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -17,7 +16,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import nl.avans.informatica.bioscoopapp.domain.SQLResult;
-import nl.avans.informatica.bioscoopapp.util.OnSQLResultAvailable;
+import nl.avans.informatica.bioscoopapp.util.interfaces.OnSQLResultAvailable;
 
 /**
  * Created by sjoer on 26-3-2018.

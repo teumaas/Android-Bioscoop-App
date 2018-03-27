@@ -1,4 +1,4 @@
-package nl.avans.informatica.bioscoopapp.util;
+package nl.avans.informatica.bioscoopapp.util.interfaces;
 
 import nl.avans.informatica.bioscoopapp.domain.CinemaReview;
 

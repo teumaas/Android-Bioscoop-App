@@ -17,8 +17,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import nl.avans.informatica.bioscoopapp.domain.Show;
-import nl.avans.informatica.bioscoopapp.util.OnMovieAvailable;
-import nl.avans.informatica.bioscoopapp.util.OnShowAvailable;
+import nl.avans.informatica.bioscoopapp.util.interfaces.OnShowAvailable;
 
 /**
  * Created by sjoer on 24-3-2018.

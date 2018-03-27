@@ -16,9 +16,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
-import nl.avans.informatica.bioscoopapp.domain.Movie;
 import nl.avans.informatica.bioscoopapp.domain.MovieReview;
-import nl.avans.informatica.bioscoopapp.util.OnMovieReviewAvailable;
+import nl.avans.informatica.bioscoopapp.util.interfaces.OnMovieReviewAvailable;
 
 /**
  * Created by sjoer on 24-3-2018.

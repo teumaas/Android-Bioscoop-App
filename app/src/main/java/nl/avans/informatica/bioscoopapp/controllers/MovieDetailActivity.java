@@ -35,10 +35,12 @@ public class MovieDetailActivity extends AppCompatActivity {
         TextView textViewActors = (TextView) findViewById(R.id.textViewMovieActors);
         TextView textViewGenre = (TextView) findViewById(R.id.textViewGenre);
         TextView textViewDuration = (TextView) findViewById(R.id.textViewDuration);
+        TextView textViewLanguage = (TextView) findViewById(R.id.textViewLanguage);
+        TextView textViewYear = (TextView) findViewById(R.id.textViewYear);
         TextView textViewDescription = (TextView) findViewById(R.id.textViewDescription);
 
         Picasso.with(this)
-                .load(movie.getImageURL())
+                .load(movie.getImage())
                 .into(imageViewMovie);
 
         Log.d(TAG, "Picasso was used.");
@@ -46,8 +48,10 @@ public class MovieDetailActivity extends AppCompatActivity {
         textViewTitle.setText(String.valueOf(movie.getTitle()));
         textViewActors.setText(String.valueOf(movie.getActors()));
         textViewGenre.setText(String.valueOf(movie.getGenre()));
-        textViewDuration.setText(String.valueOf(movie.getDuration()) + " minutes");
-        textViewDescription.setText(String.valueOf(movie.getDescription()));
+        textViewDuration.setText(String.valueOf(movie.getRuntime()));
+        textViewYear.setText(String.valueOf(movie.getYear()));
+        textViewLanguage.setText(String.valueOf(movie.getLanguage()));
+        textViewDescription.setText(String.valueOf(movie.getPlot()));
     }
 
     private void setupActionBar() {

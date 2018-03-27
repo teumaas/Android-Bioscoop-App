@@ -1,8 +1,6 @@
 package nl.avans.informatica.bioscoopapp.domain;
 
-/**
- * Created by sjoer on 24-3-2018.
- */
+import java.io.Serializable;
 
 public class CinemaReview {
     private int ReviewId;
@@ -10,26 +8,26 @@ public class CinemaReview {
     private String Content;
     private double Rating;
 
-    public CinemaReview(int ReviewId, String Date, String Content, double Rating){
+    public CinemaReview(int ReviewId, String Date, String Content, double Rating) {
         this.ReviewId = ReviewId;
         this.Date = Date;
         this.Content = Content;
         this.Rating = Rating;
     }
 
-    public int getReviewId(){
+    public int getReviewId() {
         return this.ReviewId;
     }
 
-    public String getDate(){
+    public String getDate() {
         return this.Date;
     }
 
-    public String getContent(){
+    public String getContent() {
         return this.Content;
     }
 
-    public double getRating(){
+    public double getRating() {
         return this.Rating;
     }
 }

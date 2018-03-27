@@ -17,7 +17,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import nl.avans.informatica.bioscoopapp.domain.Reservation;
-import nl.avans.informatica.bioscoopapp.util.OnReservationAvailable;
+import nl.avans.informatica.bioscoopapp.util.interfaces.OnReservationAvailable;
 
 /**
  * Created by sjoer on 24-3-2018.

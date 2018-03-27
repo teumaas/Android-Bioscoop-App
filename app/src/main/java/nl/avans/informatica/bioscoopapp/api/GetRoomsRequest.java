@@ -17,7 +17,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import nl.avans.informatica.bioscoopapp.domain.Room;
-import nl.avans.informatica.bioscoopapp.util.OnRoomAvailable;
+import nl.avans.informatica.bioscoopapp.util.interfaces.OnRoomAvailable;
 
 /**
  * Created by sjoer on 24-3-2018.

@@ -17,7 +17,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import nl.avans.informatica.bioscoopapp.domain.Ticket;
-import nl.avans.informatica.bioscoopapp.util.OnTicketAvailable;
+import nl.avans.informatica.bioscoopapp.util.interfaces.OnTicketAvailable;
 
 /**
  * Created by sjoer on 24-3-2018.
