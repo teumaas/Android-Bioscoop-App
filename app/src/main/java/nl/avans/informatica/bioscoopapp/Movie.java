@@ -9,6 +9,7 @@ public class Movie implements Serializable {
     private String genre;
     private int duration;
     private String imageURL;
+    private String description;
     private int releaseYear;
 
     public Movie(String title, String actors, String genre, int duration, String imageURL) {
@@ -37,5 +38,9 @@ public class Movie implements Serializable {
 
     public String getImageURL() {
         return imageURL;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

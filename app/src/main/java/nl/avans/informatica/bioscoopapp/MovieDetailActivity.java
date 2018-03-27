@@ -32,6 +32,7 @@ public class MovieDetailActivity extends AppCompatActivity {
         TextView textViewActors = (TextView) findViewById(R.id.textViewMovieActors);
         TextView textViewGenre = (TextView) findViewById(R.id.textViewGenre);
         TextView textViewDuration = (TextView) findViewById(R.id.textViewDuration);
+        TextView textViewDescription = (TextView) findViewById(R.id.textViewDescription);
 
         Picasso.with(this)
                 .load(movie.getImageURL())
@@ -43,6 +44,7 @@ public class MovieDetailActivity extends AppCompatActivity {
         textViewActors.setText(String.valueOf(movie.getActors()));
         textViewGenre.setText(String.valueOf(movie.getGenre()));
         textViewDuration.setText(String.valueOf(movie.getDuration()) + " minutes");
+        textViewDescription.setText(String.valueOf(movie.getDescription()));
     }
 
     private void setupActionBar() {
