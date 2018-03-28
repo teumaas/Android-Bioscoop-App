@@ -25,14 +25,19 @@
         </activity>
         <activity
             android:name=".controllers.MovieDetailActivity"
-            android:parentActivityName=".controllers.MainActivity"></activity>
+            android:parentActivityName=".controllers.MainActivity" />
         <activity
             android:name=".controllers.OrderTicketActivity"
-            android:parentActivityName=".controllers.MainActivity"></activity>
+            android:parentActivityName=".controllers.MainActivity" />
+        <activity
+            android:name=".controllers.PaymentActivity"
+            android:parentActivityName=".controllers.MainActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <activity android:name=".controllers.SuccessfulPayment"></activity>
     </application>
 
 </manifest>

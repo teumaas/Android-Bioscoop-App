@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
@@ -30,6 +31,8 @@ public class OrderTicketActivity extends AppCompatActivity implements OnShowAvai
     private ArrayList<Show> shows;
     private ArrayAdapter<String> adapter;
     private Spinner selectionSpinner;
+    private NumberPicker np;
+    private EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +46,7 @@ public class OrderTicketActivity extends AppCompatActivity implements OnShowAvai
         String params[] = {"https://api.teumaas.nl/getShows.php?where=movieid&movieid=" + this.movie.getMovieId()};
         getShowsRequest.execute(params);
 
-        NumberPicker np = (NumberPicker) findViewById(R.id.numberPicker);
+        np = (NumberPicker) findViewById(R.id.numberPicker);
         String nums[] = {"1", "2", "3", "4", "5", "6"};
         np.setMinValue(1);
         np.setMaxValue(6);
@@ -65,6 +68,8 @@ public class OrderTicketActivity extends AppCompatActivity implements OnShowAvai
 
         TextView title = (TextView) findViewById(R.id.titleTicket);
         title.setText(movie.getTitle());
+
+        editText = (EditText) findViewById(R.id.email_address);
     }
 
     @Override
@@ -72,18 +77,21 @@ public class OrderTicketActivity extends AppCompatActivity implements OnShowAvai
         paths.add(show.getDate() + ", " + show.getTime());
         shows.add(show);
         adapter.notifyDataSetChanged();
+
+        TextView ticketPrice = (TextView) findViewById(R.id.ticketPrice);
+        ticketPrice.setText("€" + shows.get(0).getPrice());
     }
 
     @Override
     public void onClick(View view) {
         Log.d(TAG, "onClick was called");
-//        Intent orderTicketIntent = new Intent(this, OrderTicketActivity.class);
-//
-//        orderTicketIntent.putExtra("MOVIE", this.movie);
-//
-//        startActivity(orderTicketIntent);
+        Intent paymentIntent = new Intent(this, PaymentActivity.class);
 
-        Log.d(TAG, shows.get(selectionSpinner.getSelectedItemPosition()).toString());
+        paymentIntent.putExtra("MOVIE", this.movie);
+        paymentIntent.putExtra("SHOW", shows.get(selectionSpinner.getSelectedItemPosition()));
+        paymentIntent.putExtra("AMMOUNT", np.getValue());
+        paymentIntent.putExtra("EMAIL", "" + editText.getText());
 
+        startActivity(paymentIntent);
     }
 }
