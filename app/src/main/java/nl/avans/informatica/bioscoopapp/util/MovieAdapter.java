@@ -30,7 +30,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         private View view;
         private ImageView imageViewMovie;
         private TextView textViewTitle;
-        private TextView textViewActors;
         private TextView textViewGenre;
         private TextView textViewDuration;
 
@@ -41,7 +40,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
 
             imageViewMovie = (ImageView) itemView.findViewById(R.id.imageViewMovie);
             textViewTitle = (TextView) itemView.findViewById(R.id.textViewMovieTitle);
-            textViewActors = (TextView) itemView.findViewById(R.id.textViewMovieActors);
             textViewGenre = (TextView) itemView.findViewById(R.id.textViewGenre);
             textViewDuration = (TextView) itemView.findViewById(R.id.textViewDuration);
         }
@@ -92,7 +90,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         Log.d(TAG, movie.getRuntime());
 
         holder.textViewTitle.setText(String.valueOf(movie.getTitle()));
-        //holder.textViewActors.setText(String.valueOf(movie.getActors()));
         holder.textViewGenre.setText(String.valueOf(movie.getGenre()));
         holder.textViewDuration.setText(String.valueOf(movie.getRuntime()));
     }

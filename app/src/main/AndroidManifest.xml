@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".controllers.MainActivity"
-            android:label="@string/title_activity_main"
+            android:label="@string/app_name"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -25,8 +25,10 @@
         </activity>
         <activity
             android:name=".controllers.MovieDetailActivity"
-            android:parentActivityName=".controllers.MainActivity">
-        </activity>
+            android:parentActivityName=".controllers.MainActivity"></activity>
+        <activity
+            android:name=".controllers.OrderTicketActivity"
+            android:parentActivityName=".controllers.MainActivity"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

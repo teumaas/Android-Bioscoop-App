@@ -6,6 +6,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,9 +16,10 @@ import com.squareup.picasso.Picasso;
 import nl.avans.informatica.bioscoopapp.R;
 import nl.avans.informatica.bioscoopapp.domain.Movie;
 
-public class MovieDetailActivity extends AppCompatActivity {
+public class MovieDetailActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "MovieDetailActivity";
+    private Movie movie;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,7 +31,7 @@ public class MovieDetailActivity extends AppCompatActivity {
         setupActionBar();
 
         Intent extras = getIntent();
-        Movie movie = (Movie) extras.getSerializableExtra("MOVIE");
+        this.movie = (Movie) extras.getSerializableExtra("MOVIE");
 
         ImageView imageViewMovie = (ImageView) findViewById(R.id.imageViewMovie);
         TextView textViewTitle = (TextView) findViewById(R.id.textViewMovieTitle);
@@ -38,6 +41,7 @@ public class MovieDetailActivity extends AppCompatActivity {
         TextView textViewLanguage = (TextView) findViewById(R.id.textViewLanguage);
         TextView textViewYear = (TextView) findViewById(R.id.textViewYear);
         TextView textViewDescription = (TextView) findViewById(R.id.textViewDescription);
+        Button orderTickets = (Button) findViewById(R.id.orderTickets);
 
         Picasso.with(this)
                 .load(movie.getImage())
@@ -52,6 +56,7 @@ public class MovieDetailActivity extends AppCompatActivity {
         textViewYear.setText(String.valueOf(movie.getYear()));
         textViewLanguage.setText(String.valueOf(movie.getLanguage()));
         textViewDescription.setText(String.valueOf(movie.getPlot()));
+        orderTickets.setOnClickListener(this);
     }
 
     private void setupActionBar() {
@@ -64,5 +69,15 @@ public class MovieDetailActivity extends AppCompatActivity {
         }
 
         Log.d(TAG, "setupActionBar was executed.");
+    }
+
+    @Override
+    public void onClick(View view) {
+        Log.d(TAG, "onClick was called");
+        Intent orderTicketIntent = new Intent(this, OrderTicketActivity.class);
+
+        orderTicketIntent.putExtra("MOVIE", this.movie);
+
+        startActivity(orderTicketIntent);
     }
 }

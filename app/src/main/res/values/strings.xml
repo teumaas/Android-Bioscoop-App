@@ -6,4 +6,10 @@
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
 
     <string name="action_settings" translatable="false">Settings</string>
+    <string name="bestel_tickets">Bestel tickets</string>
+    <string name="aantal_tickets">Aantal tickets</string>
+    <string name="geselecteerde_voorstelling">Geselecteerde voorstelling:</string>
+    <string name="bevestig">Bevestig</string>
+    <string name="selecteer_voorstelling">Selecteer voorstelling:</string>
+    <string name="title">Title</string>
 </resources>
