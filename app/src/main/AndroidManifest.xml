@@ -37,7 +37,8 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".controllers.SuccessfulPayment"></activity>
+        <activity android:name=".controllers.SuccessfulPayment"
+            android:parentActivityName=".controllers.MainActivity" />
     </application>
 
 </manifest>
