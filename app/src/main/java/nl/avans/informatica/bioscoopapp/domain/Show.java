@@ -1,10 +1,12 @@
 package nl.avans.informatica.bioscoopapp.domain;
 
+import java.io.Serializable;
+
 /**
  * Created by sjoer on 24-3-2018.
  */
 
-public class Show {
+public class Show implements Serializable{
     private int ShowId;
     private String Date;
     private String Time;

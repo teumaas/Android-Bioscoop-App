@@ -12,4 +12,6 @@
     <string name="bevestig">Bevestig</string>
     <string name="selecteer_voorstelling">Selecteer voorstelling:</string>
     <string name="title">Title</string>
+
+    <string name="succesful_payment_back_button">Terug naar filmoverzicht</string>
 </resources>
