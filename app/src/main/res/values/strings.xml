@@ -18,6 +18,8 @@
 
     <string name="action_settings" translatable="false">Settings</string>
     <string name="bestel_tickets">Bestel tickets</string>
+    <string name="reviews_button">Reviews</string>
+    <string name="plaats_review_button">Plaats review</string>
     <string name="aantal_tickets">Aantal tickets</string>
     <string name="geselecteerde_voorstelling">Geselecteerde voorstelling:</string>
     <string name="bevestig">Bevestig</string>
