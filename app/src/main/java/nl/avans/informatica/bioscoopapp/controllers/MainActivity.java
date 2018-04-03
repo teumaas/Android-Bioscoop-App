@@ -1,5 +1,6 @@
 package nl.avans.informatica.bioscoopapp.controllers;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -109,7 +110,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
-
+            Intent contactIntent = new Intent(MainActivity.this, ContactDetailsActivity.class);
+            startActivity(contactIntent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
