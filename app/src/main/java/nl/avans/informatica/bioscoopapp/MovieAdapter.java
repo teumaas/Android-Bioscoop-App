@@ -1,7 +1,8 @@
-package nl.avans.informatica.bioscoopapp.util;
+package nl.avans.informatica.bioscoopapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,10 +14,6 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-
-import nl.avans.informatica.bioscoopapp.R;
-import nl.avans.informatica.bioscoopapp.controllers.MovieDetailActivity;
-import nl.avans.informatica.bioscoopapp.domain.Movie;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
 
@@ -30,6 +27,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         private View view;
         private ImageView imageViewMovie;
         private TextView textViewTitle;
+        private TextView textViewActors;
         private TextView textViewGenre;
         private TextView textViewDuration;
 
@@ -40,6 +38,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
 
             imageViewMovie = (ImageView) itemView.findViewById(R.id.imageViewMovie);
             textViewTitle = (TextView) itemView.findViewById(R.id.textViewMovieTitle);
+            textViewActors = (TextView) itemView.findViewById(R.id.textViewMovieActors);
             textViewGenre = (TextView) itemView.findViewById(R.id.textViewGenre);
             textViewDuration = (TextView) itemView.findViewById(R.id.textViewDuration);
         }
@@ -84,14 +83,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         Movie movie = (Movie) this.movies.get(position);
 
         Picasso.with(context)
-                .load(movie.getImage())
+                .load(movie.getImageURL())
                 .into(holder.imageViewMovie);
 
-        Log.d(TAG, movie.getRuntime());
-
         holder.textViewTitle.setText(String.valueOf(movie.getTitle()));
+        holder.textViewActors.setText(String.valueOf(movie.getActors()));
         holder.textViewGenre.setText(String.valueOf(movie.getGenre()));
-        holder.textViewDuration.setText(String.valueOf(movie.getRuntime()));
+        holder.textViewDuration.setText(String.valueOf(movie.getDuration()) + " minutes");
     }
 
     @Override
