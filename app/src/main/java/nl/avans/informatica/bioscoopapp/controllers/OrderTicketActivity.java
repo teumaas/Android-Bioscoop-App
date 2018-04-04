@@ -77,7 +77,6 @@ public class OrderTicketActivity extends AppCompatActivity implements OnShowAvai
         paths.add(show.getDate() + ", " + show.getTime());
         shows.add(show);
         adapter.notifyDataSetChanged();
-
         TextView ticketPrice = (TextView) findViewById(R.id.ticketPrice);
         ticketPrice.setText("€" + shows.get(0).getPrice());
     }
