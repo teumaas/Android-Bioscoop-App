@@ -48,6 +48,7 @@ public class MovieDetailActivity extends AppCompatActivity implements View.OnCli
             @Override
             public void onClick(View view) {
                 Intent reviewIntent = new Intent(MovieDetailActivity.this, ReviewActivity.class);
+                reviewIntent.putExtra("MOVIE", movie);
                 startActivity(reviewIntent);
             }
         });

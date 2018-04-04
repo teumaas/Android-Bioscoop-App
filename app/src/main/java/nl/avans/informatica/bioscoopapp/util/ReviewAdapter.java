@@ -63,7 +63,6 @@ public class ReviewAdapter extends BaseAdapter {
             viewHolder = new ViewHolder();
             viewHolder.review = (TextView) convertView.findViewById(R.id.review);
             viewHolder.reviewDate = (TextView) convertView.findViewById(R.id.reviewDate);
-            viewHolder.movieRating = (TextView) convertView.findViewById(R.id.movieRating);
 
             // Koppel de view aan de viewHolder
             convertView.setTag(viewHolder);
@@ -75,8 +74,6 @@ public class ReviewAdapter extends BaseAdapter {
         MovieReview review = (MovieReview) reviewsArrayList.get(position);
         viewHolder.review.setText(review.getContent()); //ToDo moet vanuit de DB worden opgehaald.
         viewHolder.reviewDate.setText(review.getDate()); //ToDo moet vanuit de DB worden opgehaald.
-        viewHolder.movieRating.setText("Rating: " + review.getRating() + "/10"); //ToDo moet vanuit de DB worden opgehaald.
-
 
         return convertView;
     }
@@ -84,7 +81,6 @@ public class ReviewAdapter extends BaseAdapter {
     private static class ViewHolder { //wordt alleen in deze class gebruikt daarom geen public class gemaakt
         protected TextView review;
         protected TextView reviewDate;
-        protected TextView movieRating;
     }
 }
 

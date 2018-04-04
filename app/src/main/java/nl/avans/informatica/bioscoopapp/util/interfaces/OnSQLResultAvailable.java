@@ -7,5 +7,5 @@ import nl.avans.informatica.bioscoopapp.domain.SQLResult;
  */
 
 public interface OnSQLResultAvailable {
-    void onShowAvailable(SQLResult sqlResult);
+    void onSQLResultAvailable(SQLResult sqlResult);
 }

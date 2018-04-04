@@ -59,7 +59,8 @@
             android:name=".controllers.SuccessfulPayment"
             android:parentActivityName=".controllers.MainActivity" />
         <activity android:name=".controllers.ContactDetailsActivity" />
-        <activity android:name=".controllers.ReviewActivity"></activity>
+        <activity android:name=".controllers.ReviewActivity"
+            android:parentActivityName=".controllers.MainActivity" />
     </application>
 
 </manifest>
