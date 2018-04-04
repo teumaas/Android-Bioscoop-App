@@ -74,7 +74,8 @@
             android:configChanges="orientation|keyboardHidden"/>
         <activity android:name=".controllers.ReviewActivity"
             android:screenOrientation="portrait"
-            android:configChanges="orientation|keyboardHidden" />
+            android:configChanges="orientation|keyboardHidden"
+            android:parentActivityName=".controllers.MainActivity"/>
 
     </application>
 

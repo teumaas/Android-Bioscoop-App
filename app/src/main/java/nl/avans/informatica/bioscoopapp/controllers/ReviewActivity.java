@@ -72,8 +72,6 @@ public class ReviewActivity extends AppCompatActivity implements OnMovieReviewAv
             }
         });
 
-        EditText reviewEditText = (EditText) findViewById(R.id.reviewEditText);
-
         Button reviewButton = (Button) findViewById(R.id.plaatsReviewButton);
         reviewButton.setOnClickListener(this);
 
@@ -82,14 +80,16 @@ public class ReviewActivity extends AppCompatActivity implements OnMovieReviewAv
     }
 
     private void addReview(){
+        EditText reviewEditText = (EditText) findViewById(R.id.reviewEditText);
+
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         Date currentDate = new Date();
         Log.d(TAG, dateFormat.format(currentDate));
 
         String date = dateFormat.format(currentDate);
-        String content = "Wat een mooie testfilm";
-        String rating = "4.0";
-        String movieid = "tt5198796";
+        String content = reviewEditText.getText().toString();
+        String rating = "0.0";
+        String movieid = movie.getMovieId();
 
         ExecuteQuery addReview = new ExecuteQuery(this);
         String parameters[] = {"https://api.teumaas.nl/changeValues.php?action=create&table=review&date=" + date + "&content=" + content + "&rating=" + rating + "&movieid=" + movieid + ""};
@@ -109,7 +109,12 @@ public class ReviewActivity extends AppCompatActivity implements OnMovieReviewAv
 
     @Override
     public void onClick(View view) {
-        addReview();
         Log.d(TAG, "onClick was called");
+
+        addReview();
+
+        EditText reviewEditText = (EditText) findViewById(R.id.reviewEditText);
+        reviewEditText.clearFocus();
+        reviewEditText.setText("");
     }
 }
