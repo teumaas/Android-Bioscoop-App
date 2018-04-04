@@ -29,6 +29,7 @@ public class PaymentActivity extends AppCompatActivity {
         Intent extras = getIntent();
         show = (Show) extras.getSerializableExtra("SHOW");
         movie = (Movie) extras.getSerializableExtra("MOVIE");
+
         ticketsOrdered = extras.getIntExtra("AMMOUNT", 1);
         email = extras.getStringExtra("EMAIL");
 
@@ -49,7 +50,8 @@ public class PaymentActivity extends AppCompatActivity {
         String QRCode = show.getMovieId() + show.getTime() + show.getDate() + show.getRoomId();
         int ShowId = show.getShowId();
         price = ticketsOrdered * show.getPrice();
-        String redirectUrl = "sendTicket.php?ticketID=1&email=" + email + "&QRCode=" + QRCode + "&showID=" + ShowId + "&chairID=4&paymentMethod=iDeal&price=" + price +"";
+
+        String redirectUrl = "&ticketID=1&email=" + email + "&QRCode=" + QRCode + "&showID=" + ShowId + "&movieName=" + movie.getTitle() + "&chairID=1&paymentMethod=iDeal&price=" + price + "&ticketAmount=" + ticketsOrdered;
 
         webView.loadUrl("https://api.teumaas.nl/setupPayment.php?amount=" + price + "&redirect=" + redirectUrl + "&desc=" + movie.getTitle() + "");
     }
