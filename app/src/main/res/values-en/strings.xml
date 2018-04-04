@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Cinema App</string>
+
+    <string name="contact_header">Contact</string>
+    <string name="contact_description">If you have questions, please contact us. We will answer all your questions as soon as possible!</string>
+    <string name="contact_details_header">Contactdetails</string>
+    <string name="contact_details">
+        Lovensdijkstraat 61
+        \n4818 AJ Breda
+        \nNetherlands
+        \nTelephonenumber: 076-0000000
+        \nEmail@email.com
+    </string>
 </resources>

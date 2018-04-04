@@ -43,6 +43,15 @@ public class MovieDetailActivity extends AppCompatActivity implements View.OnCli
         TextView textViewDescription = (TextView) findViewById(R.id.textViewDescription);
         Button orderTickets = (Button) findViewById(R.id.orderTickets);
 
+        Button reviewButton = (Button) findViewById(R.id.reviewButton);
+        reviewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent reviewIntent = new Intent(MovieDetailActivity.this, ReviewActivity.class);
+                startActivity(reviewIntent);
+            }
+        });
+
         Picasso.with(this)
                 .load(movie.getImage())
                 .into(imageViewMovie);
