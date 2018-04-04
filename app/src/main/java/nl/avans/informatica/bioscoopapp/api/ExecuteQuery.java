@@ -88,7 +88,7 @@ public class ExecuteQuery extends AsyncTask<String, Void, String> {
                 SQLResult SQLResultObject = new SQLResult(SQLResult);
 
                 Log.d(TAG, SQLResultObject.toString());
-                listener.onShowAvailable(SQLResultObject);
+                listener.onSQLResultAvailable(SQLResultObject);
         } catch (JSONException e) {
             Log.d(TAG, "onPostExecute JSONException " + e.getLocalizedMessage());
         }
