@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">Bioscoop App</string>
-    <string name="title_activity_main" translatable="false">MainActivity</string>
+    <string name="title_activity_main">Filmoverzicht</string>
 
-    <string name="contact_header">Contact</string>
+    <string name="contact_header" translatable="false">Contact</string>
     <string name="contact_description">Als u vragen heeft, neem dan contact met ons op, wij zullen al uw vragen zo snel mogelijk beantwoorden!</string>
     <string name="contact_details_header">Contactgegevens</string>
-    <string name="contact_details">
+    <string name="contact_details" translatable="false">
         Lovensdijkstraat 61
         \n4818 AJ Breda
         \nNederland
@@ -13,18 +13,18 @@
         \nEmail@email.com
     </string>
 
-    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
-    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Open navigatiemenu</string>
+    <string name="navigation_drawer_close">Sluit navigatiemenu</string>
 
-    <string name="action_settings" translatable="false">Settings</string>
+    <string name="action_settings">Instellingen</string>
     <string name="bestel_tickets">Bestel tickets</string>
-    <string name="reviews_button">Reviews</string>
+    <string name="reviews_button" translatable="false">Reviews</string>
     <string name="plaats_review_button">Plaats review</string>
     <string name="aantal_tickets">Aantal tickets</string>
     <string name="geselecteerde_voorstelling">Geselecteerde voorstelling:</string>
     <string name="bevestig">Bevestig</string>
     <string name="selecteer_voorstelling">Selecteer voorstelling:</string>
-    <string name="title">Title</string>
+    <string name="title">Titel</string>
 
     <string name="succesful_payment_back_button">Terug naar filmoverzicht</string>
 </resources>

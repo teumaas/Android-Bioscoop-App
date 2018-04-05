@@ -2,14 +2,18 @@
 <resources>
     <string name="app_name">Cinema App</string>
 
-    <string name="contact_header">Contact</string>
     <string name="contact_description">If you have questions, please contact us. We will answer all your questions as soon as possible!</string>
     <string name="contact_details_header">Contactdetails</string>
-    <string name="contact_details">
-        Lovensdijkstraat 61
-        \n4818 AJ Breda
-        \nNetherlands
-        \nTelephonenumber: 076-0000000
-        \nEmail@email.com
-    </string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_main" translatable="false">Movie overview</string>
+    <string name="action_settings">Settings</string>
+    <string name="bestel_tickets">Order tickets</string>
+    <string name="plaats_review_button">Place review</string>
+    <string name="aantal_tickets">Number of tickets</string>
+    <string name="geselecteerde_voorstelling">Selected show</string>
+    <string name="bevestig">Confirm</string>
+    <string name="selecteer_voorstelling">Select show:</string>
+    <string name="title">Title</string>
+    <string name="succesful_payment_back_button">Back to movie overview</string>
 </resources>
